@@ -1,24 +1,41 @@
+import {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Header from './Header';
+import Search from  './Search';
+import Products from './Products';
+import { useStateValue } from './StateProvider'
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Checkout from './Checkout';
+import Order from './Order';
 
 function App() {
+	//const [user, setUser] = useState(null);
+	const [ state, dispatch] = useStateValue();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+    	<div className="App">
+
+       <Switch>
+       		<Route path="/checkout">
+       			 <Header />
+       			 <Checkout />
+       		</Route>
+       		<Route path="/order">
+       			 <Header />
+       			 <Order />
+       		</Route>
+       		<Route path="/">
+       		   <Header />		
+		       <Search />
+		       <Products /> 
+       		</Route>	 
+       </Switch>
+
+		</div>       
+       </Router>
+
+    
   );
 }
 
