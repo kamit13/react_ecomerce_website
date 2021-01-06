@@ -8,6 +8,8 @@ import { useStateValue } from './StateProvider'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Checkout from './Checkout';
 import Order from './Order';
+import Features from './Features';
+import Footer from './Footer';
 
 function App() {
 	//const [user, setUser] = useState(null);
@@ -27,12 +29,15 @@ function App() {
        		</Route>
        		<Route path="/">
        		   <Header />		
-		       <Search />
-		       <Products /> 
+  		       <Search />
+             <Features />
+  		       <Products /> 
+              <Footer /> 
        		</Route>	 
        </Switch>
 
-		</div>       
+		</div>   
+      
        </Router>
 
     

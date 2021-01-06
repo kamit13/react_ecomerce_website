@@ -46,7 +46,6 @@ function Search() {
     spacing={0}
     alignItems="center"
     justify="center"
-    direction= {screenSize ? "row-reverse" : "row"}
     >
     <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
       <div className="search__left__content">
