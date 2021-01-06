@@ -40,7 +40,7 @@ function Search() {
   }
 
   return (
-    <>
+     
     <div className="search">
     <Grid container 
     spacing={0}
@@ -73,21 +73,7 @@ function Search() {
     </div>
     
      
-    <div className="search__field">
-         
-         
-        <InputBase
-          className={classes.input}
-          placeholder="Search....."
-          inputProps={{ 'aria-label': 'Serach.....' }}
-        />
-        <IconButton type="submit" className={classes.iconButton} aria-label="search">
-          <SearchIcon  style={{ color: '#f0c14b' }}/>
-        </IconButton>
-        <Divider className={classes.divider} orientation="vertical" />
-        
-     </div>
-     </>
+     
   );
 }
 

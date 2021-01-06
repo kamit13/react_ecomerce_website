@@ -16,7 +16,12 @@ function Header() {
 	      	</div>
 	    </Link>
        	<div className="header__nav">
-
+       		 <Link to="/products">
+	       		<div className="header__option">
+			       <span className="header__title"> New,</span>
+			       <span className="header__login">Product</span>
+		       	</div>
+	       </Link>
 
 	       <Link to="/order">
 	       		<div className="header__option">

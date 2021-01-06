@@ -27,16 +27,17 @@ function ProductContains({ id , title , image}) {
 		history.push('/checkout')
 	}
 	 
-  return (	<div className="product__option">
-  				<div className="product__image">
-		 					<img src={ image } />
-		          		 </div>
-		          		 <div className="product__details">
-		          		 	<p className="product__title">{title}</p>
-		          		 	  
-		          		 	<button className="add__toBasket" onClick={AddToBasket}>Adopt Dog</button>
-		          		 </div>
-		    </div>      		 
+  return (	
+  		<div className="product__option">
+			<div className="product__image">
+					<img src={ image } />
+      		 </div>
+      		 <div className="product__details">
+      		 	<p className="product__title">{title}</p>
+      		 	  
+      		 	<button className="add__toBasket" onClick={AddToBasket}>Add To WishList</button>
+      		 </div>
+		</div>      		 
   	);}
 
   export default ProductContains;

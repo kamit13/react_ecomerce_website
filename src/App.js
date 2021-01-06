@@ -9,7 +9,10 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Checkout from './Checkout';
 import Order from './Order';
 import Features from './Features';
+import Specification from './Specification'; 
 import Footer from './Footer';
+import Clients from './Clients';
+
 
 function App() {
 	//const [user, setUser] = useState(null);
@@ -27,11 +30,16 @@ function App() {
        			 <Header />
        			 <Order />
        		</Route>
+          <Route path="/products">
+             <Header />
+             <Products />
+          </Route>
        		<Route path="/">
        		   <Header />		
   		       <Search />
              <Features />
-  		       <Products /> 
+             <Specification />
+  		        <Clients />
               <Footer /> 
        		</Route>	 
        </Switch>

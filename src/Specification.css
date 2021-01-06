@@ -1,0 +1,22 @@
+.specifaction__image {
+	margin-top: 20px;
+	min-height: 200px;
+	max-height: 300px;
+	width: 100%;
+	object-fit: contain;
+}
+
+.specification__content {
+	margin: 10px;
+
+}
+
+.specification__content > h3 {
+	font-size: 30px;
+	text-align: left;
+}
+
+.specification__content > p {
+	font-size: 20px;
+	text-align: left;
+}

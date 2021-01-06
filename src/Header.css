@@ -41,12 +41,14 @@
 
 .header__login{
 	font-weight: 500;
+	text-decoration: none;
 }
 
 .header__title {
 	font-size: 10px;
+	text-decoration: none;
  }
 
-.header__title {
-	font-size: 10px;
- }
+
+
+ 

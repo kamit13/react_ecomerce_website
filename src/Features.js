@@ -9,6 +9,41 @@ import SignalWifi4BarLockIcon from '@material-ui/icons/SignalWifi4BarLock';
 import Divider from '@material-ui/core/Divider';
 import './Features.css';
 
+import {
+  createMuiTheme,
+  ThemeProvider as MuiThemeProvider,
+} from '@material-ui/core/styles';
+import { deepPurple } from '@material-ui/core/colors';
+import styled, { ThemeProvider } from 'styled-components';
+import NoSsr from '@material-ui/core/NoSsr';
+
+const customTheme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#9dc7d8' ,
+    },
+    secondary: {
+      main: '#9dc7d8' ,
+    },
+  },
+});
+
+const Styledvatar = styled(Avatar)`
+  ${({ theme }) => `
+  cursor: pointer;
+  background-color: ${theme.palette.primary.main};
+  transition: ${theme.transitions.create(['background-color', 'transform'], {
+    duration: theme.transitions.duration.standard,
+  })};
+  &:hover {
+    background-color: ${theme.palette.secondary.main};
+    transform: scale(1.3);
+  }
+  `}
+`;
+
+
+
 function Features(){
 	const classes = useStyles();
 
@@ -17,39 +52,52 @@ function Features(){
 			<h3 className={classes.heading}>Features</h3>
 
 	      <Grid container spacing={3} justify="center" alignItems="center" >
+	        <MuiThemeProvider theme={customTheme}>
+				<ThemeProvider theme={customTheme}>
+					
+			        <Grid item xs={12} sm={6} md={4} lg={3} >
+			          <Paper  className={classes.paper}   >
+					    <div className={classes.icon_center}>     
+					         
+					         <Avatar  className={classes.avatar} >
+				        		<Styledvatar className={classes.avatar} >
+				        		<SportsEsportsIcon  className={classes.icon}  />
+				      			</Styledvatar>
+				      		</Avatar>
+				      		
+				      	</div>
+			          	<h4 className={classes.features__title}>Gaming Feature</h4>
+			          	<p className={classes.features__details}> Fast Gaming Performance </p>
+			          </Paper>
+			        </Grid>
+			        <Grid item xs={12} sm={6} md={4} lg={3}>
+			          <Paper className={classes.paper}>
+			          	<div className={classes.icon_center}>     
+					         <Avatar  className={classes.avatar}>
+					        <Styledvatar className={classes.avatar} >
+				        		<ComputerIcon className={classes.icon} />
+				        	</Styledvatar>	
+				      		</Avatar>
+				      	</div>
+			          	<h4 className={classes.features__title}>High Performance</h4>
+			          	<p className={classes.features__details}> Multitasking Performance</p>
+			          </Paper>
+			        </Grid>
 	        <Grid item xs={12} sm={6} md={4} lg={3} >
-	          <Paper className={classes.paper}   >
-			    <div className={classes.icon_center}>     
-			         <Avatar  className={classes.avatar} >
-		        		<SportsEsportsIcon  className={classes.icon}  />
-		      		</Avatar>
-		      	</div>
-	          	<h4 className={classes.features__title}>Gaming Feature</h4>
-	          	<p className={classes.features__details}> Fast Gaming Performance </p>
-	          </Paper>
-	        </Grid>
-	        <Grid item xs={12} sm={6} md={4} lg={3}>
 	          <Paper className={classes.paper}>
 	          	<div className={classes.icon_center}>     
 			         <Avatar  className={classes.avatar}>
-		        		<ComputerIcon className={classes.icon} />
-		      		</Avatar>
-		      	</div>
-	          	<h4 className={classes.features__title}>High Performance</h4>
-	          	<p className={classes.features__details}> Multitasking Performance</p>
-	          </Paper>
-	        </Grid>
-	        <Grid item xs={12} sm={6} md={4} lg={3} >
-	          <Paper className={classes.paper}>
-	          	<div className={classes.icon_center}>     
-			         <Avatar  className={classes.avatar}>
+			         	<Styledvatar className={classes.avatar} >
 		        		<SignalWifi4BarLockIcon  className={classes.icon} />
+		      			</Styledvatar>
 		      		</Avatar>
 		      	</div>
 	          	<h4 className={classes.features__title}>Best Security</h4>
 	          	<p className={classes.features__details}>Best Security Perfomance</p>
 	          </Paper>
 	        </Grid>
+	        </ThemeProvider>
+	        </MuiThemeProvider>	
 	      </Grid>
 	    </div>
 	)

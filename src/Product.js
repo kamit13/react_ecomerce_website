@@ -12,7 +12,8 @@ import axios from  'axios';
 import ProductContains from './ProductContains';
 import Pagination from '@material-ui/lab/Pagination';
 import Typography from '@material-ui/core/Typography'
- 
+
+
 
 function Product() {
 	const classes = useStyles();	 
@@ -57,7 +58,8 @@ function Product() {
    			<CircularProgress color="inherit"/> : 
 		      <Grid container spacing={3}>
 		      { pagination.map( items =>(
-		        <Grid item xs={12} sm={6} md={6} lg={4} xl={3}>
+		      	 
+		        <Grid item   xs={12} sm={6} md={6} lg={4} xl={3}  >
 		          		
 		          		 <ProductContains 
 		          		 	id={items.id}
@@ -82,9 +84,12 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
+
   paper: {
     padding: theme.spacing(2),
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
+
+
 }));
