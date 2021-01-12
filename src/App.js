@@ -3,7 +3,6 @@ import logo from './logo.svg';
 import './App.css';
 import Header from './Header';
 import Banner from  './Banner';
-import Products from './Products';
 import { useStateValue } from './StateProvider'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Checkout from './Checkout';
@@ -32,8 +31,8 @@ function App() {
        		</Route>
           <Route path="/products">
              <Header />
-             <Search />
-             <Products />
+              
+              <Search />
           </Route>
        		<Route path="/">
        		   <Header />		

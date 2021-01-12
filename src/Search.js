@@ -1,4 +1,4 @@
-import React from 'react';
+import React , { useEffect, useState }from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase';
@@ -7,7 +7,10 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 import DirectionsIcon from '@material-ui/icons/Directions';
-import Grid from '@material-ui/core/Grid';
+import Grid from '@material-ui/core/Grid'; 
+import './Products.css';
+import Product from './Product'; 
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,33 +31,46 @@ const useStyles = makeStyles((theme) => ({
     height: 28,
     margin: 4,
   },
-   
+  prdoucts: {
+  	backgroundColor: 'red',
+  }   
 }));
 
 
-function Search(){
-	
+function Search() {
 	const classes = useStyles();
 
-	  return (
-	  	<Grid container justify="center" >
-	  		<Grid item >
-			    <Paper component="form" className={classes.root}>
+	const SearchItem = (event) =>{
+		console.log(event);
+	}
 
-			      <InputBase
-			        className={classes.input}
-			        placeholder="Search Product..."
-			         
-			      />
-			      <Divider className={classes.divider} orientation="vertical" />
-			      <IconButton type="submit" className={classes.iconButton} aria-label="search">
-			        <SearchIcon />
-			      </IconButton>
-			      
-			       
-			    </Paper>
-			</Grid>
-		</Grid>	    
-	  );
-};
+  return (  
+  	<div>
+  		<div>
+         	<Grid container justify="center" >
+		  		<Grid item >
+				    <Paper component="form" className={classes.root}>
+
+				      <InputBase
+				        className={classes.input}
+				        placeholder="Search Product..."
+				        onChange={(event) => SearchItem(event.target.value) }
+				         
+				      />
+				      <Divider className={classes.divider} orientation="vertical" />
+				      <IconButton type="submit" className={classes.iconButton} aria-label="search">
+				        <SearchIcon />
+				      </IconButton>       
+					</Paper>
+				</Grid>
+			</Grid>	    
+			</div>
+		<div className="products">
+    		<Product />
+    	</div>	 
+    </div>    
+ 		    
+  );
+}
 export default Search;
+
