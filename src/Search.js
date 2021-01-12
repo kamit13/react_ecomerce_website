@@ -12,6 +12,13 @@ import './Products.css';
 import Product from './Product'; 
 
 
+import FormLabel from '@material-ui/core/FormLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import Checkbox from '@material-ui/core/Checkbox';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: '2px 4px',
@@ -31,20 +38,31 @@ const useStyles = makeStyles((theme) => ({
     height: 28,
     margin: 4,
   },
-  prdoucts: {
-  	backgroundColor: 'red',
-  }   
+  formControl: {
+    margin: theme.spacing(3),
+  },
+     
 }));
 
 
 function Search() {
 	const classes = useStyles();
 	const [search , setSearch] = useState('');
+	const [sideFilter, setSideFilter] = useState('');
+	const [checkBox, setCheckBox] = useState(false);
+
+
 	const SearchItem = (event) =>{	 
 		console.log(event);
 		setSearch(event);
 	}
 
+	const FilterProduct = (event, checked) =>{	 
+		console.log(" filter button",event, checked);
+		setCheckBox(checked);
+		setSideFilter(event); 
+	}
+	
   return (  
   	<div>
   		<div>
@@ -67,7 +85,24 @@ function Search() {
 			</Grid>	    
 			</div>
 		<div className="products">
-    		<Product search={search} />
+			<Grid container spacing={0} justify="center"  >
+				<Grid item spacing={0} sm={12} md={2} >
+	    			 
+	    			<FormControl component="fieldset" className={classes.formControl}>
+				        <FormLabel component="legend">Assign responsibility</FormLabel>
+					        <FormGroup>
+					          <FormControlLabel
+					             
+					            control={<Checkbox    name="ep" onChange={(event) => FilterProduct(event.target.name, event.target.checked)}  />}
+					            label="Ep"
+					          />
+					       </FormGroup>
+					</FormControl> 
+	    		</Grid>
+	    		<Grid item spacing={0} sm={12} md={9} >
+	    			<Product search={ checkBox == true ? sideFilter : search } />
+	    		</Grid>
+	    	</Grid>
     	</div>	 
     </div>    		    
   );

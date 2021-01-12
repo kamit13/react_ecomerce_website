@@ -61,9 +61,6 @@ function Product({ search }) {
 	    });    
 	}; 
 		 
-
-
-
   return (
    		<div className="product">
    			<div className={classes.root}>
