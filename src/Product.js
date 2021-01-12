@@ -1,6 +1,7 @@
 import React, {useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './Product.css';
+import './ProductContains.css';
 import Divider from '@material-ui/core/Divider';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -26,6 +27,7 @@ function Product() {
 	
 	const pagination = data.slice(startingIndex, endIndex); 
 
+	console.log("browser History", window.history);
 	useEffect(() => {		 
 		ApiCall();			 		 
 	}, []); 
@@ -90,6 +92,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     color: theme.palette.text.secondary,
   },
+
 
 
 }));

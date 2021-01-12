@@ -2,7 +2,7 @@ import {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Header from './Header';
-import Search from  './Search';
+import Banner from  './Banner';
 import Products from './Products';
 import { useStateValue } from './StateProvider'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -12,7 +12,7 @@ import Features from './Features';
 import Specification from './Specification'; 
 import Footer from './Footer';
 import Clients from './Clients';
-
+import Search from './Search';
 
 function App() {
 	//const [user, setUser] = useState(null);
@@ -32,11 +32,12 @@ function App() {
        		</Route>
           <Route path="/products">
              <Header />
+             <Search />
              <Products />
           </Route>
        		<Route path="/">
        		   <Header />		
-  		       <Search />
+  		       <Banner />
              <Features />
              <Specification />
   		        <Clients />
