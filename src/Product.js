@@ -16,7 +16,7 @@ import Typography from '@material-ui/core/Typography'
 
 
 
-function Product() {
+function Product({ search }) {
 	const classes = useStyles();	 
 	const [data, setData] = useState([]);
 	const [loading, setLoading] = useState(false);
@@ -25,7 +25,7 @@ function Product() {
 	const [startingIndex, setStartingIndex] = useState(0);
 	const [endIndex, setEndIndex] = useState(postPerPage);
 	
-	const pagination = data.slice(startingIndex, endIndex); 
+	
 
 	console.log("browser History", window.history);
 	useEffect(() => {		 
@@ -45,6 +45,14 @@ function Product() {
 		}
 	}
 
+	const result = search !=="" ? data.filter((object) =>  object.title.includes(search)) : data ;
+	 
+	console.log("filtered data",result);
+
+	const pagination = result.slice(startingIndex, endIndex); 
+	console.log("search value in Product ", search);
+
+
 	const HandleChange = (event, value) => {
 	    setPage(value);
 	    setStartingIndex((value-1)*postPerPage);
@@ -53,6 +61,9 @@ function Product() {
 	    });    
 	}; 
 		 
+
+
+
   return (
    		<div className="product">
    			<div className={classes.root}>
@@ -73,7 +84,7 @@ function Product() {
 		      </Grid> 
 		  }
 				  <div className="pagination">	
-					<Pagination count={data.length %1 === 0 ? data.length/postPerPage : (data.length/postPerPage)+1 } page={page} onChange={HandleChange} />	 
+					<Pagination count={result.length %1 === 0 ? result.length/postPerPage : (result.length/postPerPage)+1 } page={page} onChange={HandleChange} />	 
 		      	  </div>	
 		    </div>
    		</div>

@@ -1,8 +1,9 @@
- 
+
 
 .products {
 	display: flex;
 	align-items: center;
 	background-color: #eaeded;
 	justify-content: space-between;	
+	 
 }

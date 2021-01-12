@@ -39,9 +39,10 @@ const useStyles = makeStyles((theme) => ({
 
 function Search() {
 	const classes = useStyles();
-
-	const SearchItem = (event) =>{
+	const [search , setSearch] = useState('');
+	const SearchItem = (event) =>{	 
 		console.log(event);
+		setSearch(event);
 	}
 
   return (  
@@ -54,8 +55,8 @@ function Search() {
 				      <InputBase
 				        className={classes.input}
 				        placeholder="Search Product..."
-				        onChange={(event) => SearchItem(event.target.value) }
 				         
+				        onChange={(event) => SearchItem(event.target.value) }
 				      />
 				      <Divider className={classes.divider} orientation="vertical" />
 				      <IconButton type="submit" className={classes.iconButton} aria-label="search">
@@ -66,10 +67,9 @@ function Search() {
 			</Grid>	    
 			</div>
 		<div className="products">
-    		<Product />
+    		<Product search={search} />
     	</div>	 
-    </div>    
- 		    
+    </div>    		    
   );
 }
 export default Search;
